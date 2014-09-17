@@ -1,0 +1,84 @@
+@import 'common';
+
+
+.nav {
+    background: #3d3c44;
+    height: 46px;
+    width: 100%;
+
+    .nav-inner {
+        padding: 0 10px;
+        position: relative;
+    }
+
+    h2, a {
+        color: #fff;
+        text-align: center;
+    }
+
+    h2 {
+       font-size: 16px;
+       width: 50%;
+       margin: 0 auto;
+       line-height: 46px;
+    }
+
+    a {
+        display: block;
+        .size(24px);
+        position: absolute;
+        font-size: 14px;
+        text-decoration: none;
+        top: 11px;
+    }
+
+    a.first {
+        left: 10px;
+    }
+
+    a.last {
+        right: 10px;
+    }
+
+    a.last-2 {
+        right: 10px + 34px;
+    }
+}
+
+.nav.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-placeholder {
+    height: 56px;
+}
+
+
+
+
+
+// new message
+.show-msg {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-left: 0;
+    border-right: 0;
+    .box-shadow(0 1px 1px #ccc);
+}
+.box-success {
+    border-color: #a2d246;
+    background-color: #ebf8a4;
+    color: #000;
+}
+.box-fail {
+    border-color: #a40000;
+    color: #ff3300;
+    background-color: #ffc4de;
+}
+.msg-form {
+    margin: 0 10px;
+}

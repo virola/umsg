@@ -1,0 +1,17 @@
+@import '../../dep/est/src/all';
+
+@support-old-ie: false;
+@default-font-size: 14px;
+@default-text-color: #333;
+
+.global-reset();
+
+body {
+    font-family: @default-base-font-family;
+    font-size: @default-font-size;
+    line-height: 1.6;
+}
+
+.box {
+    .box-sizing(border-box);
+}

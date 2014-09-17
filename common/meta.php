@@ -1,2 +1,2 @@
 <meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-<link type="text/css" href="./static/asset/css/page.css" />
+<link rel="stylesheet" href="./static/asset/css/main.css" />

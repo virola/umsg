@@ -1,0 +1,202 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+main {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+audio:not([controls]),
+[hidden] {
+  display: none;
+}
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.nav {
+  background: #3d3c44;
+  height: 46px;
+  width: 100%;
+}
+.nav .nav-inner {
+  padding: 0 10px;
+  position: relative;
+}
+.nav h2,
+.nav a {
+  color: #fff;
+  text-align: center;
+}
+.nav h2 {
+  font-size: 16px;
+  width: 50%;
+  margin: 0 auto;
+  line-height: 46px;
+}
+.nav a {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  font-size: 14px;
+  text-decoration: none;
+  top: 11px;
+}
+.nav a.first {
+  left: 10px;
+}
+.nav a.last {
+  right: 10px;
+}
+.nav a.last-2 {
+  right: 44px;
+}
+.nav.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.nav-placeholder {
+  height: 56px;
+}
+.show-msg {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-left: 0;
+  border-right: 0;
+  -webkit-box-shadow: 0 1px 1px #cccccc;
+  -moz-box-shadow: 0 1px 1px #cccccc;
+  box-shadow: 0 1px 1px #cccccc;
+}
+.box-success {
+  border-color: #a2d246;
+  background-color: #ebf8a4;
+  color: #000;
+}
+.box-fail {
+  border-color: #a40000;
+  color: #ff3300;
+  background-color: #ffc4de;
+}
+.msg-form {
+  margin: 0 10px;
+}
