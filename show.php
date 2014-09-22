@@ -61,7 +61,7 @@ if ($result) {
 
 <div id="page-chat" class="page page-chat">
     <div class="scroll">
-        <div class="loading">下拉加载历史消息...</div>
+        <div class="loading" style="display:none">下拉加载历史消息</div>
         <ul id="talk-msg-list" class="talk-msg" data-url="ajax/msglist.php?uid=<?php echo $targetid?>">
             <?php foreach ($msg_arr as $msg) { ?>
             <li class="clear">

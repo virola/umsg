@@ -13,7 +13,8 @@
     "globals": {
         "define": true,
         "require": true,
-        "jQuery": true
+        "jQuery": true,
+        "IScroll": true
     },
     
     "browser": true,

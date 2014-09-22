@@ -34,7 +34,7 @@ module.exports = function (grunt) {
     
     grunt.extendConfig({
         'jshint': {
-            'page': [
+            'all': [
                 'src/js/*.js'
             ]
         },
@@ -100,6 +100,11 @@ module.exports = function (grunt) {
         'less:page',
         'concat:page',
         'uglify:page'
+    ]);
+
+    grunt.registerTask('release', [
+        'jshint:all',
+        'page-release'
     ]);
 
     grunt.registerTask('default', 'Log some stuff.', function() {

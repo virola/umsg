@@ -1,13 +1,16 @@
 var loading = {
-    show: function (jdom) {
-        var target = $(jdom);
-        if (!target.size()) {
-            return;
-        }
-
+    show: function (msg, jdom) {
+        
         this.main = $('.loading');
         if (!this.main.size()) {
+            var target = $(jdom);
+            if (!target.size()) {
+                return;
+            }
             this.main = $('<div>加载中...</div>').addClass('loading').insertAfter(target);
+        }
+        if (msg) {
+            this.main.text(msg);
         }
         this.main.show();
     },
@@ -143,7 +146,7 @@ $(function () {
             },
             dataType: 'json',
             success: function (data) {
-                if (data && data.status == 0) {
+                if (data && data.status === 0) {
                     window.location.reload();
                 }
             }
@@ -152,13 +155,13 @@ $(function () {
         return false;
     });
 
-    scroll.init();
+    scrollModule.init();
 });
 
 /**
  * 消息列表scroll加载
  */
-var scroll = (function () {
+var scrollModule = (function () {
 
     var talkList = $('#talk-msg-list');
     var page = 1;
@@ -170,7 +173,15 @@ var scroll = (function () {
 
     // bind scroll
     function initScroller() {
-        uiScroll = new IScroll('#page-chat', { probeType: 3, mouseWheel: true });
+        uiScroll = new IScroll('#page-chat', { 
+            probeType: 2, 
+            mouseWheel: true,
+            scrollbars: true,
+            fadeScrollbars: true,
+            momentum: true,        // 允许有惯性滑动
+            shrinkScrollbars: 'scale',
+            click: true
+        });
 
         var timer;
         uiScroll.on('scroll', function () {
@@ -179,16 +190,31 @@ var scroll = (function () {
                 return false;
             }
 
+            if (_me.y > 0) {
+                loading.show('下拉加载历史消息');
+            }
+
             if (timer) {
                 clearTimeout(timer);
             }
 
             timer = setTimeout(function () {
-                if (_me.y >= 50 && !isAjax) {
+                if (_me.y >= 5 && !isAjax) {
                     page++;
                     loadList(page);
                 }
-            }, 500);
+            }, 200);
+        });
+
+        uiScroll.on('scrollEnd', function () {
+            if (isLoadend || isAjax) {
+                return false;
+            }
+
+            var y = this.y;
+            if (y < 5) {
+                loading.hide();
+            }
         });
     }
 
@@ -198,7 +224,7 @@ var scroll = (function () {
         }
         var url = TALK_URL + '&page=' + page;
         isAjax = 1;
-        loading.show(talkList);
+        loading.show('加载中...', talkList);
 
         $.ajax({
             url: url,
@@ -208,11 +234,12 @@ var scroll = (function () {
 
                     isAjax = 0;
                     
-                    if (json.status == 0) {
+                    if (json.status === 0) {
                         renderList(json.data.list || []);
                         setTimeout(function () {
                             uiScroll.refresh();
                         }, 0);
+                        loading.hide();
                         if (json.data.loadend) {
                             isLoadend = 1;
                             loading.complete('已全部显示');
@@ -224,7 +251,7 @@ var scroll = (function () {
             failure: function () {
                 isAjax = 0;
             }
-        })
+        });
     }
 
     function renderList(list) {
@@ -252,42 +279,12 @@ var scroll = (function () {
         $(html.join('')).insertBefore(talkList.children('li:first'));
     }
 
-    var talkTimer;
-
-    function bindScroll() {
-        $(window).on('scroll', function () {
-            var viewTop = $(document.body).scrollTop();
-
-            if (talkTimer) {
-                clearTimeout(talkTimer);
-            }
-
-            if (isLoadend) {
-                return false;
-            }
-
-            talkTimer = setTimeout(function () {
-                if (viewTop <= 30 && !isAjax) {
-                    page++;
-                    loadList(page);
-                }
-            }, 200);
-        });
-    }
-
-
 
     return {
         init: function () {
 
             if (talkList.size()) {
                 initScroller();
-                talkList.children('li:last').get(0).scrollIntoView();
-                // bindScroll();
-
-                document.addEventListener('touchmove', function (e) { 
-                    e.preventDefault(); 
-                }, false);
             }
         }
     };
