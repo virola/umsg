@@ -43,6 +43,9 @@ if ($targetid) {
         if (empty($msg_arr) || count($msg_arr) < $page_size) {
             $loadend = true;
         }
+        else {
+            $msg_arr = array_reverse($msg_arr);
+        }
     }
 
 }

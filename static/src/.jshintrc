@@ -1,0 +1,27 @@
+{
+    "camelcase": true,
+    "eqeqeq": false,
+    "undef": true,
+    "quotmark": "single",
+    "maxlen": 120,
+    "trailing": true,
+    "curly": true,
+    "laxbreak": true,
+    "laxcomma": true,
+    "multistr": true,
+    "sub": true,
+    "globals": {
+        "define": true,
+        "require": true,
+        "jQuery": true
+    },
+    
+    "browser": true,
+    "jquery": true,
+    "-W014": true,
+    "-W102": true,
+
+    "predef": [
+        "$"
+    ]
+}

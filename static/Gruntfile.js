@@ -17,11 +17,27 @@ module.exports = function (grunt) {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             }
+        },
+        jshint: {
+            options: {
+                jshintrc: 'src/.jshintrc'
+            },
+            ignore_warning: {
+                options: {
+                    '-W014': true,
+                    '-W102': true
+                }
+            }
         }
     });
 
     
     grunt.extendConfig({
+        'jshint': {
+            'page': [
+                'src/js/*.js'
+            ]
+        },
         'watch': {
             'page': {
                 files: [

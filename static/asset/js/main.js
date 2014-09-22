@@ -118,16 +118,16 @@ $(function () {
      * message list 页面逻辑处理
      */
     var replyForm = $('#chat-sendmsg-form');
-    var replyText = $('#chat-sendmsg-box').find('textarea');
+    var replyText = $('#chat-sendmsg-box').find('.txt');
     var replyBtn = $('.sendmsg-go');
 
-    replyText.on('focusin', function () {
-        replyBtn.css({
-            display: 'block'
-        });
+    replyText.on('keydown', function (e) {
+        // todo
+    }).on('focusin', function () {
+        // replyBtn.css('display', 'block');
     });
 
-    replyBtn.on('click', function () {
+    replyForm.on('submit', function () {
         var url = replyForm.attr('action');
         var content = $.trim(replyText.val());
 
@@ -144,7 +144,6 @@ $(function () {
             dataType: 'json',
             success: function (data) {
                 if (data && data.status == 0) {
-                    // console.log(data);
                     window.location.reload();
                 }
             }
@@ -167,6 +166,32 @@ var scroll = (function () {
     var TALK_URL = talkList.attr('data-url');
     var isLoadend;
 
+    var uiScroll;
+
+    // bind scroll
+    function initScroller() {
+        uiScroll = new IScroll('#page-chat', { probeType: 3, mouseWheel: true });
+
+        var timer;
+        uiScroll.on('scroll', function () {
+            var _me = this;
+            if (isLoadend || isAjax) {
+                return false;
+            }
+
+            if (timer) {
+                clearTimeout(timer);
+            }
+
+            timer = setTimeout(function () {
+                if (_me.y >= 50 && !isAjax) {
+                    page++;
+                    loadList(page);
+                }
+            }, 500);
+        });
+    }
+
     function loadList(page) {
         if (isAjax) {
             return false;
@@ -185,9 +210,12 @@ var scroll = (function () {
                     
                     if (json.status == 0) {
                         renderList(json.data.list || []);
+                        setTimeout(function () {
+                            uiScroll.refresh();
+                        }, 0);
                         if (json.data.loadend) {
                             isLoadend = 1;
-                            loading.complete('已全部加载完毕');
+                            loading.complete('已全部显示');
                         }
                     }
                 }, 1000);
@@ -220,15 +248,15 @@ var scroll = (function () {
                 + '</li>';
             html[i] = str;
         });
-        talkList.append(html.join(''));
+
+        $(html.join('')).insertBefore(talkList.children('li:first'));
     }
 
     var talkTimer;
 
     function bindScroll() {
         $(window).on('scroll', function () {
-            var viewBottom = $(document.body).scrollTop() + $(window).height();
-            var listBottom = talkList.offset().top + talkList.outerHeight();
+            var viewTop = $(document.body).scrollTop();
 
             if (talkTimer) {
                 clearTimeout(talkTimer);
@@ -239,7 +267,7 @@ var scroll = (function () {
             }
 
             talkTimer = setTimeout(function () {
-                if (viewBottom >= listBottom && !isAjax) {
+                if (viewTop <= 30 && !isAjax) {
                     page++;
                     loadList(page);
                 }
@@ -247,17 +275,20 @@ var scroll = (function () {
         });
     }
 
-    
+
 
     return {
         init: function () {
 
             if (talkList.size()) {
-                bindScroll();
+                initScroller();
+                talkList.children('li:last').get(0).scrollIntoView();
+                // bindScroll();
+
+                document.addEventListener('touchmove', function (e) { 
+                    e.preventDefault(); 
+                }, false);
             }
         }
     };
 })();
-function initScroll() {
-
-}
