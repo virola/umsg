@@ -1,10 +1,9 @@
 <?php include('./common/db.php') ?>
-<?php include('./common/functions.php') ?>
 
 <?php
 
 $sql = 'select * from user where userid!='.$common['user']['userid'].';';
-$result = mysql_query($sqljoin, $con);
+$result = mysql_query($sql, $con);
 
 $data = array();
 
@@ -13,7 +12,7 @@ if ($result) {
         $data[] = array(
             'userid' => $row['authorid'],
             'username' => $row['username'],
-            'avator' => getAvator();
+            'avator' => getAvator(),
         );
     }
 }
@@ -21,19 +20,12 @@ if ($result) {
 <ul class="user-list">
     <?php foreach ($data as $user) { ?>
     <li>
-        <a href="#">
-            <input type="checkbox" name="username" value="<?php echo $user['username'];?>">
-            
+        <a class="list-item clear" href="javascript:;">
             <dl>
-                <dt class="fr"><?php echo $user['username'];?></dt>
-                <dd class="fl">
-                    <div class="user-avator">
-                        <img src="./static/asset/img/<?php echo $user['avator']?>">
-                    </div>
-                </dd>
+                <dd class="box fl"><img class="avator-round" src="<?php echo $user['avator']?>"></dd>
+                <dt class="box fl"><?php echo $user['username'];?></dt>
             </dl>
         </a>
-        
     </li>
     <?php } ?>
 </ul>

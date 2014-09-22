@@ -1,5 +1,15 @@
 @import 'common';
+@import 'tab';
 
+.new-nav() {
+    background: #f8f8f8;
+    .linear-gradient(to bottom,#f8f8f8,#e8e8e8);
+    color: #333;
+
+    h2, a {
+        color: #333;
+    }
+}
 
 .nav {
     background: #3d3c44;
@@ -17,7 +27,8 @@
     }
 
     h2 {
-       font-size: 16px;
+       font-size: 18px;
+       font-weight: 600;
        width: 50%;
        margin: 0 auto;
        line-height: 46px;
@@ -25,9 +36,8 @@
 
     a {
         display: block;
-        .size(24px);
+        .size(50px, 24px);
         position: absolute;
-        font-size: 14px;
         text-decoration: none;
         top: 11px;
     }
@@ -43,20 +53,85 @@
     a.last-2 {
         right: 10px + 34px;
     }
+
+    .new-nav();
 }
 
 .nav.fixed {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 99;
 }
 
-.nav-placeholder {
-    height: 56px;
+.page {
+    margin-top: 56px;
 }
 
 
+// index
+.msg-list {
+    a {
+        display: block;
+        position: relative;
+        padding: 0 10px;
+        border-bottom: 1px solid #ddd;
+    }
 
+    li {
+        margin-bottom: 10px;
+    }
+
+    .user-avator {
+        width: 18%;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .user-info {
+        width: 80%;
+
+        dt {
+            margin-top: -3px;
+        }
+
+        dd {
+            .ellipsis();
+            margin-right: 30px;
+            color: #929292;
+            line-height: 1em;
+            padding-top: 2px;
+            padding-bottom: 10px;
+        }
+    }
+
+    .plus {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        font-size: 12px;
+    }
+
+    .dateline {
+        color: #929292;
+        position: absolute;
+        width: 4rem;
+        right: 7px;
+        top: 1px;
+        line-height: 1em;
+        text-align: right;
+        font-size: .625rem;
+    }
+
+    .bubble {
+        margin-top: 24px;
+        margin-right: 7px;
+        font-size: 9px;
+    }
+}
 
 
 // new message
@@ -75,10 +150,14 @@
     color: #000;
 }
 .box-fail {
-    border-color: #a40000;
+    border-color: #f44400;
     color: #ff3300;
     background-color: #ffc4de;
 }
 .msg-form {
     margin: 0 10px;
 }
+
+@import 'form';
+@import 'popup';
+@import 'list';

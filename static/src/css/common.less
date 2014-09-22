@@ -1,8 +1,10 @@
 @import '../../dep/est/src/all';
 
 @support-old-ie: false;
-@default-font-size: 14px;
+@default-font-size: 1rem;
 @default-text-color: #333;
+
+@default-link-color: #00a0b0;
 
 .global-reset();
 
@@ -10,8 +12,113 @@ body {
     font-family: @default-base-font-family;
     font-size: @default-font-size;
     line-height: 1.6;
+    -webkit-text-size-adjust: none;
+}
+input, textarea {
+    font-family: @default-base-font-family;
+    font-size: @default-font-size;
+}
+html, body, header, footer, nav, article, section, aside, time, code, div, p, ul, ol, li, dl, dd, dt, h1, h2, h3, a, span, strong, em, small, form, label, input, textarea {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    word-break: break-all;
+}
+em, i, b, strong {
+    font-weight: 400;
+    font-style: normal;
+}
+ol, ul, li, dl, dt, dd {
+    display: block;
+}
+a {
+    color: @default-text-color;
+    text-decoration: none;
+}
+input {
+    -webkit-appearance: none;
 }
 
 .box {
     .box-sizing(border-box);
+}
+
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clear {
+    .clearfix();
+}
+
+.btn {
+    display: block;
+    padding: 0;
+    font-size: .875rem;
+    line-height: 26px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(255,255,255,.65);
+    box-shadow: 0 1px 2px rgba(0,0,0,.06),inset 0 1px rgba(255,255,255,.56);
+    .linear-gradient(top, #f2f2f2 0,#dfdfdf 92%,#e8e8e8 100%);
+}
+.btn-submit {
+    border-color: @default-link-color;
+    background: @default-link-color;
+    box-shadow: 0 1px 2px rgba(0,0,0,.06),inset 0 1px rgba(28, 205, 223,.56);
+    text-shadow: 0 0 0;
+    color: #fff !important;
+}
+
+.header-btn {
+    border: @default-link-color solid 1px;
+    padding: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    background: @default-link-color;
+    .linear-gradient(top, #57c8d3 , @default-link-color);
+    border-radius: 3px;
+    text-shadow: 0 1px rgba(0,0,0,.1);
+    .box-shadow(0 1px 0 rgba(248,248,248,.12) inset,0 1px 0 rgba(255,255,255,.5));
+}
+
+.bubble {
+    display: block;
+}
+.bubble-dot-red {
+    min-width: 16px;
+    padding: 0 5px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 8px;
+    background-color: #dc3c33;
+    color: #fff;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.avator-round {
+    display: block;
+    border-radius: 40px;
+    max-width: 40px;
+}
+
+.hide {
+    display: none;
+}
+
+.loading {
+    color: #666;
+    padding: 20px;
+    text-align: center;
+    text-shadow: 0 1px 2px #fff;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 12px;
+    line-height: 16px;
 }
