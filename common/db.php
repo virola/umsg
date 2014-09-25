@@ -15,10 +15,6 @@ session_start();
 
 date_default_timezone_set("Asia/Shanghai");
 
-function changeTimeZone($timeline) {
-    return ($timeline - 8*60*60);
-}
-
 function timeFormat($dateline) {
     $date_text = date('Y-m-d', $dateline);
 
@@ -41,6 +37,31 @@ function timeFormat($dateline) {
     }
 
     // echo $now;
+    return $date_text;
+}
+
+
+function timeFormatPC($dateline) {
+    $date_text = date('Y-n-d h:i', $dateline);
+
+    $now = time();
+    $n_y = date('Y', $now);
+    $t_y = date('Y', $dateline);
+    $gap = $now - $dateline;
+
+    if ($gap < 60) {
+        $date_text = '刚刚';
+    }
+    else if ($gap < 60 * 60) {
+        $date_text = floor($gap / 60).'分钟前';
+    }
+    else if ($gap < 24 * 60 * 60) {
+        $date_text = floor($gap / 3600).'小时前';
+    }
+    else if ($n_y == $t_y) {
+        $date_text = date('n月d日 G:i', $dateline);
+    }
+
     return $date_text;
 }
 
