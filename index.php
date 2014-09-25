@@ -39,7 +39,7 @@ if ($result) {
                 <div class="user-avator fl">
                     <img class="avator-round" src="<?php echo $msg['avator']?>">
                 </div>
-                <dl class="user-info fr">
+                <dl class="user-info">
                     <dt><?php echo $msg['username']?></dt>
                     <dd><?php echo $msg['content']?></dd>
                 </dl>

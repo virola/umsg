@@ -427,14 +427,14 @@ input {
   margin-bottom: 10px;
 }
 .msg-list .user-avator {
-  width: 18%;
+  width: 50px;
 }
 .msg-list .user-avator img {
   width: 100%;
   height: auto;
 }
 .msg-list .user-info {
-  width: 80%;
+  margin-left: 60px;
 }
 .msg-list .user-info dt {
   margin-top: -3px;
