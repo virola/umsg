@@ -282,6 +282,23 @@ input {
   font-size: 12px;
   line-height: 16px;
 }
+@font-face {
+  font-family: wb440;
+  font-weight: 400;
+  font-style: normal;
+  src: url(../font/wb440.eot);
+  src: url(../font/wb440.eot?#iefix) format("embedded-opentype"), url(../font/wb440.woff) format("woff"), url(../font/wb440.ttf) format("truetype"), url(../font/wb440.svg?#wb440) format("svg");
+}
+.iconf {
+  font-family: wb440;
+  color: #444;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iconf-at::before {
+  content: "\52";
+}
 .tab-line {
   display: flex;
   -webkit-box-sizing: border-box;
@@ -425,6 +442,66 @@ input {
 }
 .msg-list li {
   margin-bottom: 10px;
+}
+.msg-list .msg-item-at a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 10px;
+}
+.msg-list .msg-item-at .item-ico {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 40px;
+  margin-right: 10px;
+  background-color: #5bb4da;
+}
+.msg-list .msg-item-at .iconf {
+  display: inline-block;
+  color: #fff;
+  font-size: 40px;
+}
+.msg-list .msg-item-at .list-item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  padding: 0 11px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.msg-list .msg-item-at .item-plus {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  margin-right: 7px;
+}
+.msg-list .msg-item-at .item-plus i {
+  font-size: .875rem;
+  color: #aaa;
 }
 .msg-list .user-avator {
   width: 50px;

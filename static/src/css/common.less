@@ -122,3 +122,30 @@ input {
     font-size: 12px;
     line-height: 16px;
 }
+
+@font-face {
+    font-family: wb440;
+    font-weight: 400;
+    font-style: normal;
+    src: url(../font/wb440.eot);
+    src: url(../font/wb440.eot?#iefix) format("embedded-opentype"), 
+        url(../font/wb440.woff) format("woff"), 
+        url(../font/wb440.ttf) format("truetype"), 
+        url(../font/wb440.svg?#wb440) format("svg");
+
+}
+
+.iconf {
+    font-family: wb440;
+    color: #444;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.iconf-at {
+
+    &::before {
+        content: "\52";
+    }
+}

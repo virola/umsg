@@ -1,4 +1,4 @@
-<?php include('./common/db.php'); ?>
+<?php include('./common/db.php') ?>
 <?php
 $user = $common['user'];
 $sql = 'select toid, username, authorid, max(dateline) as timeline, count(*) as msgcount from message,user where delstatus=0 and message.toid=1 and message.authorid=user.userid group by authorid order by dateline desc  limit 0,10';
@@ -29,19 +29,12 @@ if ($result) {
     <title>纸条</title>
 </head>
 <body>
+
+<?php $mod = 'at';$doc_title = '@提到我的' ?>
 <?php include('./common/header.php') ?>
+
 <div class="page">
-    <div class="feed-loading hide"><span>加载中…</span></div>
     <ul class="msg-list">
-        <li class="msg-item-at">
-            <a href="at.php">
-                <div class="item-ico"><i class="iconf iconf-at"></i></div>
-                <div class="list-item">
-                    <h3>提到我的</h3>
-                </div>
-                <div class="item-plus"><i class="item-plus">&gt;</i></div>
-            </a>
-        </li>
         <?php foreach ($msg_arr as $msg) { ?>
         <li>
             <a href="show.php?uid=<?php echo $msg['userid'] ?>" class="clear">
@@ -64,6 +57,5 @@ if ($result) {
         <?php } ?>
     </ul>
 </div>
-
 
 <?php include('./common/footer.php') ?>
