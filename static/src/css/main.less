@@ -1,73 +1,6 @@
 @import 'common';
 @import 'tab';
-
-.new-nav() {
-    background: #f8f8f8;
-    .linear-gradient(to bottom,#f8f8f8,#e8e8e8);
-    color: #333;
-
-    h2, a {
-        color: #333;
-    }
-}
-
-.nav {
-    background: #3d3c44;
-    height: 46px;
-    width: 100%;
-
-    .nav-inner {
-        padding: 0 10px;
-        position: relative;
-    }
-
-    h2, a {
-        color: #fff;
-        text-align: center;
-    }
-
-    h2 {
-       font-size: 18px;
-       font-weight: 600;
-       width: 50%;
-       margin: 0 auto;
-       line-height: 46px;
-    }
-
-    a {
-        display: block;
-        .size(50px, 24px);
-        position: absolute;
-        text-decoration: none;
-        top: 11px;
-    }
-
-    a.first {
-        left: 10px;
-    }
-
-    a.last {
-        right: 10px;
-    }
-
-    a.last-2 {
-        right: 10px + 34px;
-    }
-
-    .new-nav();
-}
-
-.nav.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
-}
-
-.page {
-    margin-top: 56px;
-}
-
+@import 'nav';
 
 // index
 .msg-list {
@@ -97,7 +30,14 @@
             text-align: center;
             width: 40px;
             margin-right: 10px;
+        }
+
+        .item-at {
             background-color: #5bb4da;
+        }
+
+        .item-comment {
+            background-color: #35b87f;
         }
 
         .iconf {
@@ -143,9 +83,14 @@
             justify-content: flex-end;
             margin-right: 7px;
 
-            i {
-                font-size: .875rem;
+            .item-plus {
+                font-size: 1.875rem;
                 color: #aaa;
+            }
+
+            .bubble {
+                margin-top: 2px;
+                margin-right: 0;
             }
         }
     }

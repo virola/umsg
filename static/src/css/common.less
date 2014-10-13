@@ -66,12 +66,22 @@ input {
     box-shadow: 0 1px 2px rgba(0,0,0,.06),inset 0 1px rgba(255,255,255,.56);
     .linear-gradient(top, #f2f2f2 0,#dfdfdf 92%,#e8e8e8 100%);
 }
+.btn-text {
+    line-height: 24px;
+}
 .btn-submit {
     border-color: @default-link-color;
     background: @default-link-color;
     box-shadow: 0 1px 2px rgba(0,0,0,.06),inset 0 1px rgba(28, 205, 223,.56);
     text-shadow: 0 0 0;
     color: #fff !important;
+}
+
+.fa-send {
+    color: @default-link-color;
+}
+.fa-ellipsis-h {
+    color: #555;
 }
 
 .header-btn {
@@ -147,5 +157,11 @@ input {
 
     &::before {
         content: "\52";
+    }
+}
+
+.iconf-comment {
+    &::before {
+        content: "\51";
     }
 }

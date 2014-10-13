@@ -43,7 +43,7 @@ if ($result) {
         );
     }
 
-    $msg_arr = array_reverse($msg_arr);
+    // $msg_arr = array_reverse($msg_arr);
 }
 ?>
 

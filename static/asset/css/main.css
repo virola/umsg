@@ -225,12 +225,21 @@ input {
   background-image: linear-gradient(to bottom, #f2f2f2 0, #dfdfdf 92%, #e8e8e8 100%);
   background-repeat: repeat;
 }
+.btn-text {
+  line-height: 24px;
+}
 .btn-submit {
   border-color: #00a0b0;
   background: #00a0b0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), inset 0 1px rgba(28, 205, 223, 0.56);
   text-shadow: 0 0 0;
   color: #fff !important;
+}
+.fa-send {
+  color: #00a0b0;
+}
+.fa-ellipsis-h {
+  color: #555;
 }
 .header-btn {
   border: #00a0b0 solid 1px;
@@ -298,6 +307,9 @@ input {
 }
 .iconf-at::before {
   content: "\52";
+}
+.iconf-comment::before {
+  content: "\51";
 }
 .tab-line {
   display: flex;
@@ -406,11 +418,23 @@ input {
 }
 .nav a {
   display: block;
-  width: 50px;
-  height: 24px;
+  width: 32px;
   position: absolute;
   text-decoration: none;
-  top: 11px;
+  line-height: 46px;
+  top: 0;
+}
+.nav a i {
+  font-size: 1.875rem;
+  vertical-align: middle;
+}
+.nav a .ico-msg {
+  font-size: 1.5rem;
+}
+.nav a .fa-send {
+  font-size: 1.5rem;
+  padding: 5px;
+  border-radius: 3px;
 }
 .nav a.first {
   left: 10px;
@@ -456,7 +480,12 @@ input {
   text-align: center;
   width: 40px;
   margin-right: 10px;
+}
+.msg-list .msg-item-at .item-at {
   background-color: #5bb4da;
+}
+.msg-list .msg-item-at .item-comment {
+  background-color: #35b87f;
 }
 .msg-list .msg-item-at .iconf {
   display: inline-block;
@@ -499,9 +528,13 @@ input {
   justify-content: flex-end;
   margin-right: 7px;
 }
-.msg-list .msg-item-at .item-plus i {
-  font-size: .875rem;
+.msg-list .msg-item-at .item-plus .item-plus {
+  font-size: 1.875rem;
   color: #aaa;
+}
+.msg-list .msg-item-at .item-plus .bubble {
+  margin-top: 2px;
+  margin-right: 0;
 }
 .msg-list .user-avator {
   width: 50px;

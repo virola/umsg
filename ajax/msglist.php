@@ -44,7 +44,7 @@ if ($targetid) {
             $loadend = true;
         }
         else {
-            $msg_arr = array_reverse($msg_arr);
+            // $msg_arr = array_reverse($msg_arr);
         }
     }
 

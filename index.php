@@ -19,6 +19,8 @@ if ($result) {
         );
     }
 }
+
+$atmsg = mt_rand(0, 1);
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +37,48 @@ if ($result) {
     <ul class="msg-list">
         <li class="msg-item-at">
             <a href="at.php">
-                <div class="item-ico"><i class="iconf iconf-at"></i></div>
+                <div class="item-ico item-at"><i class="iconf iconf-at"></i></div>
                 <div class="list-item">
                     <h3>提到我的</h3>
                 </div>
-                <div class="item-plus"><i class="item-plus">&gt;</i></div>
+                <div class="item-plus">
+                    <?php if ($atmsg) {?>
+                    <i class="bubble bubble-dot-red"><?php echo mt_rand(1, 16)?></i>
+                    <?php } else {?>
+                    <span class="item-plus"><i class="fa fa-angle-right"></i></span>
+                    <?php }?>
+                </div>
+            </a>
+        </li>
+        <li class="msg-item-at">
+            <a href="at.php">
+                <div class="item-ico item-comment"><i class="iconf iconf-comment"></i></div>
+                <div class="list-item">
+                    <h3>话题回复</h3>
+                </div>
+                <div class="item-plus">
+                    <?php if ($atmsg) {?>
+                    <i class="bubble bubble-dot-red"><?php echo mt_rand(1, 16)?></i>
+                    <?php } else {?>
+                    <span class="item-plus"><i class="fa fa-angle-right"></i></span>
+                    <?php }?>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="clear">
+                <div class="user-avator fl">
+                    <img class="avator-round" src="<?php echo $user['avator']?>">
+                </div>
+                <dl class="user-info">
+                    <dt>admin, virola, 有节操</dt>
+                    <dd>上次我们聊到哪儿了？</dd>
+                </dl>
+                <span class="plus">
+                    <span class="dateline">9小时前</span>
+                    <i class="bubble bubble-dot-red">1</i>
+                </span>
+                
             </a>
         </li>
         <?php foreach ($msg_arr as $msg) { ?>

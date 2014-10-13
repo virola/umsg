@@ -15,6 +15,8 @@ $MSG_TEXT_LIST = array(
     '3' => '用户名不能为空',
     '10' => '数据库连接错误！',
 );
+
+$doc_title = '写纸条';
 ?>
 <?php
 
@@ -93,20 +95,6 @@ if ($_POST) {
 
         <nav class="tab-menu tab-line">
             <a href="#tab-c-0" class="tab-item tab-line-item current" data-url="userlist.php?me=<?php echo $common['user']['userid']?>">最近联系</a>
-            <a href="#tab-c-1" class="tab-item tab-line-item select" data-url="userlist.php?me=<?php echo $common['user']['userid']?>&amp;rand=1">
-                <select class="select-list">
-                    <option value="-1">全部好友</option>
-                    <option value="0">其他</option>
-                    <option value="1">通过本站认识</option>
-                    <option value="2">通过活动认识</option>
-                    <option value="3">通过朋友认识</option>
-                    <option value="4">亲人</option>
-                    <option value="5">同事</option>
-                    <option value="6">同学</option>
-                    <option value="7">不认识</option>
-                </select>
-                <span class="select-selected">好友分组</span>
-            </a>
         </nav>
         <div class="tab-content user-wrap">
             <div class="c-item" id="tab-c-0">
