@@ -91,11 +91,19 @@ if ($result) {
     </form>
 </footer>
 
-<div id="user-operate" class="menu bottom-menu">
-    <div class="mask"></div>
-    <div class="menu-main">
-        <header></header>
-    </div>
+<div id="user-operate" class="menu-wrap">
+    <section class="menu">
+        <header class="menu-head">
+            <a href="#" class="ic-home"><span class="home"><i class="fa fa-home"></i></span><em>首页</em></a>
+            <a href="javascript:;" class="ic-search" style="display:none"><span class="search"><i class="fa fa-search"></i></span><em>搜索</em></a>
+            <a href="javascript:;" class="ic-refresh" data-command="refresh"><span class="refresh"><i class="fa fa-refresh"></i></span><em>刷新</em></a>
+        </header>
+        <div class="menu-list">
+            <a class="block-user"><span>屏蔽对话</span></a>
+            <a class="clear-talk"><span>清空对话</span></a>
+            <a class="menu-close"><span>取消</span></a>
+        </div>
+    </section>
 </div>
 
 <script src="./static/dep/iscroll/build/iscroll-probe.js"></script>

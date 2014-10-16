@@ -117,6 +117,8 @@ $(function () {
         userinput.focus();
     });
 
+
+    // ************************************
     /**
      * message list 页面逻辑处理
      */
@@ -156,6 +158,39 @@ $(function () {
     });
 
     scrollModule.init();
+
+    $('.show-menu').on('click', function () {
+        var target = $($(this).attr('data-menu'));
+        if (target.size()) {
+            target.show();
+        }
+        return false;
+    });
+
+    $('.menu-wrap').on('click', function () {
+        var wrap = $(this);
+        wrap.hide();
+    });
+
+    // reload
+    $('.menu-wrap .ic-refresh').on('click', function () {
+        window.location.reload();
+    });
+    $('.menu-wrap .block-user').on('click', function () {
+        var result = window.confirm('确认屏蔽？屏蔽后将收不到对方发来的纸条。');
+        if (result) {
+            // todo
+            console.log('ban user~~');
+        }
+    });
+    $('.menu-wrap .clear-talk').on('click', function () {
+        var result = window.confirm('确认清空？这个对话内容将被全部删除。');
+        if (result) {
+            // todo
+            console.log('clear talk~~');
+        }
+    });
+    // END
 });
 
 /**
