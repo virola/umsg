@@ -171,7 +171,7 @@ var scrollModule = (function () {
 
     var uiScroll;
 
-    // bind scroll
+    // pull down loading
     function initScroller() {
         uiScroll = new IScroll('#page-chat', { 
             probeType: 2, 
@@ -190,8 +190,14 @@ var scrollModule = (function () {
                 return false;
             }
 
+            // console.log(_me.x, _me.y);
+
             if (_me.y > 0) {
-                loading.show('下拉加载历史消息');
+                // loading.show('下拉加载历史消息');
+            }
+
+            if (_me.y < _me.maxScrollY) {
+                loading.show('上拉加载历史消息');
             }
 
             if (timer) {
@@ -199,7 +205,8 @@ var scrollModule = (function () {
             }
 
             timer = setTimeout(function () {
-                if (_me.y >= 5 && !isAjax) {
+                // if (_me.y >= 5 && !isAjax) {
+                if ((_me.y <= _me.maxScrollY + 5) && !isAjax) {
                     page++;
                     loadList(page);
                 }
@@ -215,6 +222,33 @@ var scrollModule = (function () {
             if (y < 5) {
                 loading.hide();
             }
+        });
+    }
+
+
+    // for pull up loading
+    var talkTimer;
+
+    // pull up loading
+    function bindPullUpScroll() {
+        $(window).on('scroll', function () {
+            var viewBottom = $(document.body).scrollTop() + $(window).height();
+            var listBottom = talkList.offset().top + talkList.outerHeight();
+
+            if (talkTimer) {
+                clearTimeout(talkTimer);
+            }
+
+            if (isLoadend) {
+                return false;
+            }
+
+            talkTimer = setTimeout(function () {
+                if (viewBottom >= listBottom && !isAjax) {
+                    page++;
+                    loadList(page);
+                }
+            }, 200);
         });
     }
 
@@ -236,10 +270,13 @@ var scrollModule = (function () {
                     
                     if (json.status === 0) {
                         renderList(json.data.list || []);
+
                         setTimeout(function () {
                             uiScroll.refresh();
                         }, 0);
+
                         loading.hide();
+
                         if (json.data.loadend) {
                             isLoadend = 1;
                             loading.complete('已全部显示');
@@ -276,7 +313,8 @@ var scrollModule = (function () {
             html[i] = str;
         });
 
-        $(html.join('')).insertBefore(talkList.children('li:first'));
+        talkList.append(html.join(''));
+        // $(html.join('')).insertBefore(talkList.children('li:first'));
     }
 
 
@@ -285,6 +323,7 @@ var scrollModule = (function () {
 
             if (talkList.size()) {
                 initScroller();
+                // bindPullUpScroll();
             }
         }
     };

@@ -8,7 +8,7 @@
             <?php if ($mod != 'show') { ?>
             <a href="new.php" class="last"><i class="ico-msg fa fa-pencil-square-o"></i></a>
             <?php } else { ?>
-            <a href="#" class="last"><i class="fa fa-ellipsis-h"></i></a>
+            <a href="#" class="last show-menu" data-menu="user-operate"><i class="fa fa-ellipsis-h"></i></a>
             <?php } ?>
         <?php } ?>
     </div>

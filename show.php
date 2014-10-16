@@ -61,7 +61,6 @@ if ($result) {
 
 <div id="page-chat" class="page page-chat">
     <div class="scroll">
-        <div class="loading" style="display:none">下拉加载历史消息</div>
         <ul id="talk-msg-list" class="talk-msg" data-url="ajax/msglist.php?uid=<?php echo $targetid?>">
             <?php foreach ($msg_arr as $msg) { ?>
             <li class="clear">
@@ -77,6 +76,7 @@ if ($result) {
             </li>
             <?php } ?>
         </ul>
+        <div class="loading" style="display:none">上拉加载历史消息</div>
     </div>
 </div>
 
@@ -90,5 +90,13 @@ if ($result) {
         </div>
     </form>
 </footer>
+
+<div id="user-operate" class="menu bottom-menu">
+    <div class="mask"></div>
+    <div class="menu-main">
+        <header></header>
+    </div>
+</div>
+
 <script src="./static/dep/iscroll/build/iscroll-probe.js"></script>
 <?php include('./common/footer.php') ?>
