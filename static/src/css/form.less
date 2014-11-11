@@ -1,5 +1,6 @@
 .msg-form {
-    margin-bottom: 20px;
+    margin: 20px 10px;
+    padding-top: 10px;
 
     .msg-t {
         display: block;
@@ -13,25 +14,30 @@
 
     .add-user {
         position: relative;
-        margin: 0 0 10px;
+        margin: 0 0 20px;
         height: 38px;
         line-height: 38px;
 
         .ico-add {
             position: absolute;
             border: 1px solid #fff;
-            margin: 8px;
-            .size(20px);
-            .border-radius(20px);
-            top: 0;
+            margin-right: 8px;
+            .size(32px);
+            .border-radius(32px);
+            top: (38px - 32px) / 2;
             right: 0;
             overflow: hidden;
             float: right;
-            line-height: 16px;
+            line-height: 32px;
             font-weight: 800;
             color: #fff;
             text-align: center;
             background-color: @default-link-color;
+
+            i {
+                font-size: 20px;
+                line-height: 32px;
+            }
         }
     }
 
@@ -40,7 +46,7 @@
         padding: 5px;
         border: 1px solid #ddd;
         width: 100%;
-        height: 100px;
+        height: 160px;
         line-height: 1.5em;
         resize: none;
         .box-sizing(border-box);

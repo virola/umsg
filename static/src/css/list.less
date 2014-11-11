@@ -6,7 +6,7 @@
     top: 50px;
     bottom: 45px;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .scroll {
@@ -46,14 +46,21 @@
     background: #fff;
 
     .form-btn {
-        padding: 10px 0 0;
+        .box-sizing(border-box);
+        float: right;
+        text-align: right;
+
+        input {
+            padding: 0 10px;
+            -webkit-appearence: none;
+        }
     }
 
     .txt {
         border: #d7d7d7 solid 1px;
         font-size: .875rem;
         background-color: #fff;
-        width: 100%;
+        width: 80%;
         padding: 5px;
         line-height: 1.5em;
         resize: none;
@@ -61,11 +68,13 @@
         -webkit-appearence: none;
         display: block;
         .box-shadow(inset 0 2px 5px rgba(0,0,0,.12));
+        float: left;
     }
 }
 
 #chat-sendmsg-box {
     padding: 0 10px;
+    .clearfix();
 }
 
 .talk-msg {
@@ -95,6 +104,11 @@
     img {
         .box-shadow(0 1px 2px rgba(0,0,0,.3));
     }
+
+    span {
+        font-size: 11px;
+        color: #888;
+    }
 }
 
 .content-talk {
@@ -111,6 +125,11 @@
         padding: 4px 5px;
         line-height: 19px;
         text-align: left;
+
+        a {
+            text-decoration: underline;
+            color: #026890;
+        }
     }
 
     &::before {
@@ -133,11 +152,26 @@
 .guest-talk, .me-talk {
     min-height: 42px;
     position: relative;
+
+    .username {
+        position: absolute;
+        line-height: 16px;
+        font-size: 11px;
+        color: #888;
+        bottom: 0;
+        top: 50px;
+        width: 50px;
+        text-align: center;
+    }
 }
 
 .me-talk {
-    padding: 5px 50px 0 35px;
+    padding: 5px 50px 20px 35px;
     text-align: right;
+
+    .username {
+        right: -5px;
+    }
 
     .avatar-talk {
         right: 0;
@@ -163,7 +197,11 @@
 }
 
 .guest-talk {
-    padding: 5px 35px 0 50px;
+    padding: 5px 35px 20px 50px;
+
+    .username {
+        left: -5px;
+    }
 
     .content-talk {
         color: #5d5d5d;
@@ -181,5 +219,16 @@
             left: -5px;
             .transform(skew(35deg));
         }
+    }
+}
+
+
+.info-msg {
+    background-color: #f9f9f9;
+    padding: 12px 10px 8px;
+    text-align: center;
+
+    a {
+        color: #507daf;
     }
 }

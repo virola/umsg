@@ -18,6 +18,11 @@ module.exports = function (grunt) {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             }
         },
+        cssmin: {
+            options: {
+                banner: '/** <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> **/'
+            }
+        },
         jshint: {
             options: {
                 jshintrc: 'src/.jshintrc'
@@ -98,6 +103,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('page-release', [
         'less:page',
+        'cssmin:page',
         'concat:page',
         'uglify:page'
     ]);

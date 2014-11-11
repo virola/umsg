@@ -10,6 +10,7 @@
     "laxcomma": true,
     "multistr": true,
     "sub": true,
+    "supernew": true,
     "globals": {
         "define": true,
         "require": true,
@@ -21,6 +22,7 @@
     "jquery": true,
     "-W014": true,
     "-W102": true,
+    "-W054": true,
 
     "predef": [
         "$"

@@ -1,16 +1,14 @@
 @import '../../dep/est/src/all';
 
 @support-old-ie: false;
-@default-font-size: 1rem;
 @default-text-color: #333;
 
 @default-link-color: #00a0b0;
+@default-font-size: 1rem;
 
-.global-reset();
-
-body {
-    font-family: @default-base-font-family;
-    font-size: @default-font-size;
+html, body {
+    font: 16px/1.6 "Merriweather Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+    color: #333;
     line-height: 1.6;
     -webkit-text-size-adjust: none;
 }
@@ -18,24 +16,26 @@ input, textarea {
     font-family: @default-base-font-family;
     font-size: @default-font-size;
 }
-html, body, header, footer, nav, article, section, aside, time, code, div, p, ul, ol, li, dl, dd, dt, h1, h2, h3, a, span, strong, em, small, form, label, input, textarea {
+body, header, footer, nav, article, section, aside, time, code, div, p, ul, ol, li, dl, dd, dt, h1, h2, h3, a, span, strong, em, small, form, label, input, textarea {
     margin: 0;
     padding: 0;
     font-weight: 400;
     word-break: break-all;
+    font-size: inherit;
+    font-family: inherit;
 }
 em, i, b, strong {
     font-weight: 400;
     font-style: normal;
 }
 ol, ul, li, dl, dt, dd {
-    display: block;
+    list-style: none;
 }
 a {
     color: @default-text-color;
     text-decoration: none;
 }
-input {
+input, textarea, input[type=button], input[type=submit], input[type=reset] {
     -webkit-appearance: none;
 }
 
@@ -57,7 +57,7 @@ input {
     display: block;
     padding: 0;
     font-size: .875rem;
-    line-height: 26px;
+    line-height: 30px;
     border: 1px solid #ddd;
     border-radius: 3px;
     text-align: center;
@@ -115,7 +115,7 @@ input {
 .avator-round {
     display: block;
     border-radius: 40px;
-    max-width: 40px;
+    .size(40px);
 }
 
 .hide {
@@ -131,6 +131,9 @@ input {
     border-bottom: 1px solid #fff;
     font-size: 12px;
     line-height: 16px;
+}
+#loading-area {
+    border-top: 0;
 }
 
 @font-face {

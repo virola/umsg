@@ -7,12 +7,18 @@
     a {
         display: block;
         position: relative;
-        padding: 0 10px;
+        padding: 5px 10px 0;
         border-bottom: 1px solid #ddd;
     }
 
     li {
         margin-bottom: 10px;
+
+        &.nodata {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+        }
     }
 
     .msg-item-at {
@@ -99,21 +105,22 @@
         width: 50px;
 
         img {
-            width: 100%;
-            height: auto;
+            display: block;
         }
     }
 
     .user-info {
-        margin-left: 60px;
+        margin-left: 50px;
 
         dt {
+            padding-right: 4rem;
             margin-top: -3px;
+            .ellipsis();
         }
 
         dd {
             .ellipsis();
-            margin-right: 30px;
+            margin-right: 4rem;
             color: #929292;
             line-height: 1em;
             padding-top: 2px;
@@ -131,18 +138,43 @@
     .dateline {
         color: #929292;
         position: absolute;
-        width: 4rem;
+        width: 5rem;
         right: 7px;
         top: 1px;
         line-height: 1em;
         text-align: right;
         font-size: .625rem;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
     .bubble {
         margin-top: 24px;
         margin-right: 7px;
         font-size: 9px;
+    }
+}
+
+// notice list
+.notice-list {
+    a {
+        padding: 10px;
+    }
+
+    li {
+        margin: 0;
+
+        .user-info {
+            margin-left: 50px;
+
+            dt {
+                min-height: 16px;
+            }
+        }
+
+        .plus {
+            top: 5px;
+        }
     }
 }
 

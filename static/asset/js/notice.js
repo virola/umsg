@@ -1,0 +1,2 @@
+/*! zhitiao.94uv.com 2014-11-11 */
+!function(a){function b(){a.ajax({url:d,cache:!1,dataType:"jsonp"}).done(function(b){var c=b.data,d=parseInt(c,10);d=isNaN(d)?0:d;var e=d>99?"99+":d,f=a(".footer>ul>li:eq(3)>a"),g=f.find("i");g.size()||(g=a("<i>").appendTo(f)),g.text(e),0>=d&&g.remove()})}var c="94uv.com";window.location.href.indexOf("94uv.dev")>-1&&(c="94uv.dev"),window.location.href.indexOf("94uv.test")>-1&&(c="94uv.test");var d="http://m.zhitiao."+c+"/index.php?app=message&func=messageTotal";setInterval(function(){b()},3e4),b()}(jQuery);
